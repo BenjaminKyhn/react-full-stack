@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, useState} from 'react';
 import articleContent from '../pages/article-content';
 import ArticlesList from '../components/ArticlesList';
 import NotFoundPage from "./NotFoundPage";
+import CommentsList from "../components/CommentsLists";
 
 const ArticlePage = ({ match }) => {
     const name = match.params.name;
@@ -29,6 +30,7 @@ const ArticlePage = ({ match }) => {
             {article.content.map((paragraph, key) => (
                 <p key={key}>{paragraph}</p>
             ))}
+            <CommentsList comments={articleInfo.comments}/>
             <h3>Other Articles</h3>
             <ArticlesList articles={otherArticles}/>
         </Fragment>
